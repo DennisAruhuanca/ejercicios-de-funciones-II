@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+void generarnumerosaleatorios(int cantnumeros, int nummaximo) {
+	srand(time(0));
+	cout << "numeros aleatorios generados" << endl;
+	for(int i = 0; i < cantnumeros; i++) {
+		int numeroaleatorio = rand() % nummaximo;
+		cout << numeroaleatorio << endl;	
+	}
+}
+int main() {
+	int cantnumeros, nummaximo;
+	cout << "ingrese los numeros aleatorios a generar: ";
+	cin >> cantnumeros;
+	cout << "ingrese el valor maximo permitido: ";
+	cin >> nummaximo;
+	generarnumerosaleatorios(cantnumeros, nummaximo);
+	return 0;
+}
