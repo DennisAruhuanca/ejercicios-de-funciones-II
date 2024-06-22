@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void calcularareacirculo(double radio) {
+	double area = M_PI * pow(radio, 2);
+	cout << "el area del circulo" << radio << " es: " << area << endl;
+}
+
+int main() {
+	double radio;
+	cout << "ingrese el radio del circulo: ";
+	cin >> radio;
+	calcularareacirculo(radio);
+	return 0;
+}
