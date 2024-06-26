@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cstdlib> 
+#include <ctime> 
+
+using namespace std;
+
+void juegoPPT() {
+    string opciones[] = {"piedra", "papel", "tijeras"};
+    int puntajeUsuario = 0, puntajeComputadora = 0;
+
+    srand(time(0)); // Inicializar la semilla para números aleatorios
+
+    while (puntajeUsuario < 3 && puntajeComputadora < 3) {
+        cout << "\nSeleccione su jugada: " << endl;
+        cout << "1. Piedra" << endl;
+        cout << "2. Papel" << endl;
+        cout << "3. Tijeras" << endl;
+
+        int opcionUsuario;
+        cout << "Ingrese su opción (1-3): ";
+        cin >> opcionUsuario;
+
+        if (opcionUsuario < 1 || opcionUsuario > 3) {
+            cout << "Opción inválida. Intente de nuevo." << endl;
+            continue;
+        }
+
+        string jugadaUsuario = opciones[opcionUsuario - 1];
+        string jugadaComputadora = opciones[rand() % 3];
+
+        cout << "\nUsted eligió: " << jugadaUsuario << endl;
+        cout << "La computadora eligió: " << jugadaComputadora << endl;
+
+        // Determinar ganador de la ronda
+        if (jugadaUsuario == jugadaComputadora) {
+            cout << "Empate en esta ronda." << endl;
+        } else if ((jugadaUsuario == "piedra" && jugadaComputadora == "tijeras") ||
+                   (jugadaUsuario == "papel" && jugadaComputadora == "piedra") ||
+                   (jugadaUsuario == "tijeras" && jugadaComputadora == "papel")) {
+            cout << "¡Usted gana esta ronda!" << endl;
+            puntajeUsuario++;
+        } else {
+            cout << "¡La computadora gana esta ronda!" << endl;
+            puntajeComputadora++;
+        }
+
+        // Mostrar puntajes actuales
+        cout << "Puntaje actual: Usuario " << puntajeUsuario << " - " << puntajeComputadora << " Computadora" << endl;
+    }
+
+    // Determinar al ganador del juego
+    if (puntajeUsuario == 3) {
+        cout << "\n¡Felicidades! Usted ganó el juego." << endl;
+    } else {
+        cout << "\n¡La computadora ganó el juego!" << endl;
+    }
+}
+
+int main() {
+    juegoPPT();
+    return 0;
+}
