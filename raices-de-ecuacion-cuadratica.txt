@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cmath> // Para sqrt
+
+using namespace std;
+
+void calcularRaices(double a, double b, double c) {
+    double discriminante = b * b - 4 * a * c;
+    double raiz1, raiz2;
+
+    if (discriminante >= 0) {
+        raiz1 = (-b + sqrt(discriminante)) / (2 * a);
+        raiz2 = (-b - sqrt(discriminante)) / (2 * a);
+        cout << "Las raíces son reales: " << raiz1 << " y " << raiz2 << endl;
+    } else {
+        double realPart = -b / (2 * a);
+        double imagPart = sqrt(-discriminante) / (2 * a);
+        cout << "Las raíces son complejas: " << realPart << " + " << imagPart << "i y "
+             << realPart << " - " << imagPart << "i" << endl;
+    }
+}
+
+int main() {
+    double a, b, c;
+    cout << "Ingrese el coeficiente a: ";
+    cin >> a;
+    cout << "Ingrese el coeficiente b: ";
+    cin >> b;
+    cout << "Ingrese el coeficiente c: ";
+    cin >> c;
+
+    calcularRaices(a, b, c);
+
+    return 0;
+}
